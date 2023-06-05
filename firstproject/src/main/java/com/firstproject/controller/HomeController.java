@@ -2,8 +2,12 @@ package com.firstproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.firstproject.domain.Story;
+
+import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
@@ -22,6 +26,18 @@ public class HomeController {
     @RequestMapping("/index")
     public String index() {
         return "index";
+    }
+
+    @RequestMapping("/user/{id}")
+    public String sertchForUser(@PathVariable(value = "id") String id) throws Exception {
+        if (id == null)
+            throw new Exception("There is no user with the given ID");
+        return "index"; // --> "user"
+    }
+    @ExceptionHandler(Exception.class)
+    public String exceptionHandler(Exception ex, Model model) {
+        model.addAttribute("exception", ex.getMessage());
+        return "exceptionHandlersPage";
     }
 
     private ArrayList<Story> getStories() {

@@ -15,8 +15,8 @@ public class Student {
 
     private String firstName = null;
     private String lastName = null;
-    @ManyToOne
-    private Course course;
+    @ManyToMany
+    private Set<Course> course = new HashSet<>();
 
     public Student() {}
 

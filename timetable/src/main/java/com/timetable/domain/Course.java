@@ -13,7 +13,7 @@ public class Course {
     private Long id;
     private String courseName;
     private String subject;
-    @OneToMany
+    @ManyToMany
     private Set<Student> students = new HashSet<>();
 
     public Course() {}

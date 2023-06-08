@@ -16,8 +16,10 @@ public class Goods {
 
     public Goods() {}
 
-    public Goods(String itemName) {
+    public Goods(String itemName, double price, int itemAmount) {
         this.itemName = itemName;
+        this.price = price;
+        this.itemAmount = itemAmount;
     }
 
     public Subcategory getSubcategory() {

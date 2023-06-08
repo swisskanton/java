@@ -17,10 +17,8 @@ public class Subcategory {
     private Category categoryName;
     public Subcategory(){}
 
-    public Subcategory(String subcategoryName, Set<Goods> goods, Category categoryName) {
+    public Subcategory(String subcategoryName) {
         this.subcategoryName = subcategoryName;
-        this.goods = goods;
-        this.categoryName = categoryName;
     }
 
     public Long getId() {

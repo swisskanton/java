@@ -11,7 +11,7 @@ public class Goods {
     private String itemName;
     private double price;
     private int itemAmount;
-    @OneToMany
+    @ManyToOne
     private Subcategory subcategory;
 
     public Goods() {}

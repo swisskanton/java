@@ -7,9 +7,9 @@ import com.goods.repositories.CategoryRepository;
 import com.goods.repositories.GoodsRepository;
 import com.goods.repositories.SubcategoryRepository;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
-@Controller
+@Component
 public class BootstrapData implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;

@@ -6,22 +6,20 @@
 </head>
 <body>
 
-<p>List of Categories</p>
+<h1>List of Categories</h1>
 <table>
     <thead>
         <tr>
             <th>Id</th>
-            <th>Category</th>
-            <th>Subctegory</th>
+            <th>Name</th>
             <th>Link</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>10</td>
-            <td>Food</td>
-            <td>Chocolate</td>
-            <td><a href="#">link</a></td>
+        <tr th:each="cat: ${categories}">
+            <td th:text="${cat.id}">10</td>
+            <td th:text="${cat.categoryName}">Food</td>
+            <td><a href="/subcategory">subcategiries</a></td>
         </tr>
     </tbody>
 </table>

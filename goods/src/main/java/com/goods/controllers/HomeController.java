@@ -22,13 +22,21 @@ public class HomeController {
     }
 
     @RequestMapping("/")
-    public String index() {
+    public String getCategories(Model model) {
+        model.addAttribute("categories", categoryService.findAll());
         return "index";
     }
 
     @RequestMapping("/subcategory")
-    public String subcategories() {
+    public String subcategories(Model model) {
+        model.addAttribute("subcategories", subcategoryService.findAll());
         return "subcategory";
+    }
+
+    @RequestMapping("/goods")
+    public String getGoods(Model model) {
+        model.addAttribute("goods", goodsService.findAll());
+        return "goods";
     }
 
     @RequestMapping("/subcategory/{id}")

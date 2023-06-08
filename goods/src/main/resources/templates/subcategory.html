@@ -6,23 +6,20 @@
 </head>
 <body>
 
-<p>List of Subcategory Items</p>
+<h1>List of Subcategory Items</h1>
 <table>
   <thead>
   <tr>
     <th>Id</th>
-    <th>Item name</th>
-    <th>Item amount</th>
-    <th>Iten price</th>
+    <th>Name</th>
+    <th>Link</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>10</td>
-    <td>Milka table</td>
-    <td>6</td>
-    <td>1.09</td>
-    <td>description</td>
+  <tr th:each="sub: ${subcategories}">
+    <td th:text="${sub.id}">10</td>
+    <td th:text="${sub.subcategory}">10</td>
+    <td><a href="/goods">goods</a></td>
   </tr>
   </tbody>
 </table>

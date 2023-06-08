@@ -1,4 +1,4 @@
-package com.goods.controllers;
+package com.goods.domain;
 
 import jakarta.persistence.*;
 

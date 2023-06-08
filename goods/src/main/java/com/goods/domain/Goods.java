@@ -6,7 +6,9 @@ import java.util.Objects;
 
 @Entity
 public class Goods {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String itemName;
     private double price;
@@ -69,7 +71,7 @@ public class Goods {
                 ", itemName='" + itemName + '\'' +
                 ", price=" + price +
                 ", itemAmount=" + itemAmount +
-                ", subcategory=" + subcategory +
+                ", subcategories=" + subcategory +
                 '}';
     }
 

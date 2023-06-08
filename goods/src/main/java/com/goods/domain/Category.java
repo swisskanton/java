@@ -12,7 +12,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String categoryName;
-    @OneToMany
+    @OneToMany(mappedBy = "category")
     private Set<Subcategory> subcategories = new HashSet<>();
 
     public Category(){}

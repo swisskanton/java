@@ -8,17 +8,20 @@ import java.util.Set;
 
 @Entity
 public class Subcategory {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String subcategoryName;
-    @OneToMany
+    private String subcategory;
+    @OneToMany(mappedBy = "subcategory")
     private Set<Goods> goods = new HashSet<>();
     @ManyToOne
-    private Category categoryName;
+    private Category category;
+
     public Subcategory(){}
 
-    public Subcategory(String subcategoryName) {
-        this.subcategoryName = subcategoryName;
+    public Subcategory(String subcategory) {
+        this.subcategory = subcategory;
     }
 
     public Long getId() {
@@ -29,12 +32,12 @@ public class Subcategory {
         this.id = id;
     }
 
-    public String getSubcategoryName() {
-        return subcategoryName;
+    public String getSubcategory() {
+        return subcategory;
     }
 
-    public void setSubcategoryName(String subcategoryName) {
-        this.subcategoryName = subcategoryName;
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
     }
 
     public Set<Goods> getGoods() {
@@ -45,21 +48,21 @@ public class Subcategory {
         this.goods = goods;
     }
 
-    public Category getCategoryName() {
-        return categoryName;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryName(Category categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(Category categoryName) {
+        this.category = category;
     }
 
     @Override
     public String toString() {
         return "Subcategory{" +
                 "id=" + id +
-                ", subcategoryName='" + subcategoryName + '\'' +
+                ", subcategoryName='" + subcategory + '\'' +
                 ", goods=" + goods +
-                ", categoryName=" + categoryName +
+                ", categoryName=" + category +
                 '}';
     }
 

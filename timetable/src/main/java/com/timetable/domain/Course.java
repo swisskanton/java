@@ -13,7 +13,7 @@ public class Course {
     private Long id;
     private String courseName;
     private String subject;
-    @ManyToMany(mappedBy = "course")
+    @ManyToMany(mappedBy = "subjects")
     private Set<Student> students = new HashSet<>();
 
     public Course() {}

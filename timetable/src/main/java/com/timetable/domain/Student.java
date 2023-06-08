@@ -16,9 +16,32 @@ public class Student {
     private String firstName = null;
     private String lastName = null;
     @ManyToMany
-    private Set<Course> course = new HashSet<>();
+    @JoinTable(name = "course_student", joinColumns = @JoinColumn(name = "course_id"),
+            inverseJoinColumns = @JoinColumn(name = "srudent_id"))
+    private Set<Course> subjects = new HashSet<>();
 
     public Student() {}
+
+    public Student(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Set<Course> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Course> course) {
+        this.subjects = subjects;
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;

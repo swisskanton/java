@@ -13,10 +13,23 @@ public class Course {
     private Long id;
     private String courseName;
     private String subject;
-    @ManyToMany
+    @ManyToMany(mappedBy = "course")
     private Set<Student> students = new HashSet<>();
 
     public Course() {}
+
+    public Course(String courseName, String subject) {
+        this.courseName = courseName;
+        this.subject = subject;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 
     public Long getId() {
         return id;

@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class BeerControllerTest {
 
     @Autowired
-    BeerController beerController;
+    HomeController homeController;
 
     @Test
     void gerBeerById() {
-        System.out.println(beerController.gerBeerById(UUID.randomUUID()));
+        System.out.println(homeController.gerBeerById(UUID.randomUUID()));
     }
 }

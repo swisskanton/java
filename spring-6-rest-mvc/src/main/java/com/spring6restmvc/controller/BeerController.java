@@ -2,13 +2,17 @@ package com.spring6restmvc.controller;
 
 import com.spring6restmvc.model.Beer;
 import com.spring6restmvc.services.BeerService;
+import com.sun.net.httpserver.Headers;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.function.ServerRequest;
 
+import javax.xml.stream.Location;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,10 +27,12 @@ public class BeerController {
     //@RequestMapping(method = RequestMethod.POST)
     public ResponseEntity handlePost(@RequestBody Beer beer) {
 
-        log.debug("In POST controller");
         Beer savedBeer = beerService.saveNewBeer(beer);
-        log.debug("Saved new Beer - in controller");
-        return new ResponseEntity(HttpStatus.CREATED);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "/api/v1/beer/" + savedBeer.getId().toString());
+        log.debug("Created new Beer - in controller");
+        return new ResponseEntity(headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET)

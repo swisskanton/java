@@ -24,6 +24,12 @@ public class BeerController {
 
     private final BeerService beerService;
 
+    @PatchMapping("/{beerId}")
+    public ResponseEntity updateBeerPatchById(@PathVariable("beerId") UUID beerId, @RequestBody Beer beer) {
+        beerService.updateBeerPatyById(beerId, beer);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
+    }
+
     @DeleteMapping("/{beerId}")
     public ResponseEntity deleteBeerById(@PathVariable("beerId") UUID beerId) {
         beerService.deleterBeerById(beerId);
@@ -32,7 +38,6 @@ public class BeerController {
 
     @PutMapping("/{beerId}")
     public ResponseEntity updateById(@PathVariable("beerId") UUID beerId, @RequestBody Beer beer) {
-
         beerService.updateBeerById(beerId, beer);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

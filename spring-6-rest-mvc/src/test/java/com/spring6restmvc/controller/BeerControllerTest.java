@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BeerControllerTest {
 
     @Autowired
-    HomeController homeController;
+    BeerController homeController;
 
     @Test
     void gerBeerById() {

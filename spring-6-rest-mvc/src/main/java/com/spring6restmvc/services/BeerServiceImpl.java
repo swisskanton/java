@@ -84,7 +84,7 @@ public class BeerServiceImpl implements BeerService {
                 .quantityOnHand(beer.getQuantityOnHand())
                 .version(beer.getVersion() + 1)
                 .build();
-        log.debug("Created new Beer. Id: " + savedBeer.getId());
+        log.debug("Created new Beer + in service");
         beerMap.put(savedBeer.getId(), savedBeer);
         return savedBeer;
     }

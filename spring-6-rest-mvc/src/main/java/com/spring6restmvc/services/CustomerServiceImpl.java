@@ -1,12 +1,13 @@
 package com.spring6restmvc.services;
 
-import com.spring6restmvc.model.Beer;
 import com.spring6restmvc.model.Customer;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Slf4j
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
@@ -65,7 +66,7 @@ public class CustomerServiceImpl implements CustomerService {
                 .build();
 
         customerMap.put(savedCustomer.getId(), savedCustomer);
-
+        log.debug("Customer " + savedCustomer.getCustomerName() + " saved");
         return savedCustomer;
     }
 
@@ -75,6 +76,7 @@ public class CustomerServiceImpl implements CustomerService {
         existing.setCustomerName(customer.getCustomerName());
         existing.setVersion(customer.getVersion());
         existing.setLastModifiedDate(LocalDateTime.now());
-        customerMap.put(existing.getId(), existing);
+        //customerMap.put(existing.getId(), existing);
+        log.debug("Customer " + existing.getCustomerName() + " updated");
     }
 }

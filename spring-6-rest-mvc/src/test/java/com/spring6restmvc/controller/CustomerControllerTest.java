@@ -1,5 +1,6 @@
 package com.spring6restmvc.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring6restmvc.model.Customer;
 import com.spring6restmvc.services.CustomerService;
 import com.spring6restmvc.services.CustomerServiceImpl;
@@ -24,7 +25,17 @@ class CustomerControllerTest {
     @MockBean
     CustomerService customerService;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     CustomerServiceImpl customerServiceImpl = new CustomerServiceImpl();
+
+    @Test
+    void testCreateNewCustomer() throws Exception{
+        Customer customer = customerServiceImpl.getAllCustomers().get(0);
+
+        System.out.println(objectMapper.writeValueAsString(customer));
+    }
 
     @Test
     void listCostumer() throws Exception {

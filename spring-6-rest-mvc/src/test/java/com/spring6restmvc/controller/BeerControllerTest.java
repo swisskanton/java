@@ -1,5 +1,6 @@
 package com.spring6restmvc.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.spring6restmvc.services.BeerService;
 import com.spring6restmvc.services.BeerServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,17 @@ class BeerControllerTest {
     @MockBean
     BeerService beerService;
 
+    @Autowired
+    ObjectMapper objectMapper;
+
     BeerServiceImpl beerServiceImpl = new BeerServiceImpl();
+
+    @Test
+    void createNewBeer() throws Exception {
+        Beer beer = beerServiceImpl.listBeers().get(0);
+
+        System.out.println(objectMapper.writeValueAsString(beer));
+    }
 
     @Test
     void testListBeers() throws Exception {

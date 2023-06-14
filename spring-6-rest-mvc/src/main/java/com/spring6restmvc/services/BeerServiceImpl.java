@@ -112,7 +112,7 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public void updateBeerPatyById(UUID beerId, Beer beer) {
+    public void updateBeerPatchById(UUID beerId, Beer beer) {
         Beer existing = beerMap.get(beerId);
 
         if (StringUtils.hasText(beer.getBeerName())) {
